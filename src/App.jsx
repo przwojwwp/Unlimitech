@@ -1,5 +1,10 @@
-import "./App.css";
+import { Header } from "./components/Header/Header";
 
-export function App() {
-  return <></>;
-}
+export const App = () => {
+  return (
+    <>
+      <Header />
+      <main></main>
+    </>
+  );
+};
