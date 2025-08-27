@@ -1,0 +1,49 @@
+@tile-radius: 16px;
+@tile-gap: 11px;
+
+.categories {
+  margin-top: 63px;
+
+  .container {
+    max-width: @content-max-width;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    max-width: @content-max-width;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 342px;
+    max-height: 689px;
+    padding: 0 !important;
+  }
+
+  &__item {
+    position: flex;
+    display: block;
+    border-radius: @tile-radius;
+    overflow: hidden;
+    height: 100%;
+
+    &--big {
+      max-height: 429px;
+    }
+
+    &--small {
+      max-height: 250px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
