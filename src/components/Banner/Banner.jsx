@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import $ from "jquery";
 import "slick-carousel";
-import "./hero.less";
+import "./banner.less";
 
 const crop = (url, w = 1400, h = 520) => `${url}?w=${w}&h=${h}&fit=crop`;
 
-export default function Hero() {
+export const Banner = () => {
   const [slides, setSlides] = useState([]);
   const sliderRef = useRef(null);
   const dotsRef = useRef(null);
@@ -46,9 +46,9 @@ export default function Hero() {
       adaptiveHeight: false,
       lazyLoad: "ondemand",
       prevArrow:
-        '<button type="button" class="hero__nav slick-prev" aria-label="Poprzedni slajd">‹</button>',
+        '<button type="button" class="banner__nav slick-prev" aria-label="Poprzedni slajd">‹</button>',
       nextArrow:
-        '<button type="button" class="hero__nav slick-next" aria-label="Następny slajd">›</button>',
+        '<button type="button" class="banner__nav slick-next" aria-label="Następny slajd">›</button>',
     });
 
     return () => {
@@ -58,36 +58,36 @@ export default function Hero() {
 
   return (
     <section
-      className="hero"
+      className="banner"
       aria-label="Promowane kolekcje"
       aria-roledescription="carousel"
     >
       <div className="container">
-        <div className="hero__box" aria-live="polite">
-          <div className="hero__slider" ref={sliderRef}>
+        <div className="banner__box" aria-live="polite">
+          <div className="banner__slider" ref={sliderRef}>
             {slides.map((s) => (
-              <div className="hero__slide" key={s.id}>
+              <div className="banner__slide" key={s.id}>
                 <img
-                  className="hero__img"
+                  className="banner__img"
                   src={s.img}
                   alt={s.alt}
                   loading="lazy"
                 />
 
-                <div className="hero__content">
-                  <h1 className="hero__title">{s.title}</h1>
-                  <p className="hero__desc">{s.desc}</p>
+                <div className="banner__content">
+                  <h1 className="banner__title">{s.title}</h1>
+                  <p className="banner__desc">{s.desc}</p>
                 </div>
 
-                <a className="hero__cta" href={s.cta}>
+                <a className="banner__cta" href={s.cta}>
                   Zobacz więcej
                 </a>
               </div>
             ))}
           </div>
-          <div className="hero__dots" ref={dotsRef} />
+          <div className="banner__dots" ref={dotsRef} />
         </div>
       </div>
     </section>
   );
-}
+};

@@ -1,8 +1,8 @@
-@hero-img-h: 520px;
-@hero-dots-h: 48px;
-@hero-radius: 16px;
+@banner-img-h: 520px;
+@banner-dots-h: 48px;
+@banner-radius: 16px;
 
-.hero {
+.banner {
   .container {
     max-width: @content-max-width;
     width: 100%;
@@ -21,13 +21,13 @@
   &__slider {
     position: relative;
     max-height: 520px;
-    border-radius: @hero-radius;
+    border-radius: @banner-radius;
     overflow: hidden;
   }
 
   &__slide {
     position: relative;
-    height: @hero-img-h;
+    height: @banner-img-h;
   }
 
   &__img {
@@ -110,7 +110,7 @@
   }
 
   &__dots {
-    height: @hero-dots-h;
+    height: @banner-dots-h;
     display: flex;
     align-items: flex-end;
     justify-content: center;

@@ -1,12 +1,12 @@
 import { Header } from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
+import { Banner } from "./components/Banner/Banner";
 
 export const App = () => {
   return (
     <>
       <Header />
       <main>
-        <Hero />
+        <Banner />
       </main>
     </>
   );
