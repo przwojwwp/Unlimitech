@@ -12,7 +12,7 @@ export default function Hero() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://picsum.photos/v2/list?page=2&limit=4");
+      const res = await fetch("https://picsum.photos/v2/list?page=2&limit=3");
       const data = await res.json();
       setSlides(
         data.map((s) => ({
@@ -40,7 +40,7 @@ export default function Hero() {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5555000,
+      autoplaySpeed: 5000,
       pauseOnHover: true,
       adaptiveHeight: false,
       lazyLoad: "ondemand",
