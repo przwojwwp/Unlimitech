@@ -46,7 +46,6 @@ export const Categories = () => {
 
       return acc;
     }, []);
-
   return (
     <section className="categories" aria-labelledby="categories-heading">
       <div className="container">

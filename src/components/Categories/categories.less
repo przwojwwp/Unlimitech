@@ -1,5 +1,5 @@
 @tile-radius: 16px;
-@tile-gap: 11px;
+@tile-gap: 10px;
 
 .categories {
   margin-top: 63px;
@@ -7,36 +7,35 @@
   .container {
     max-width: @content-max-width;
     width: 100%;
+    margin: 0 auto;
   }
 
   &__row {
     display: flex;
     justify-content: space-between;
-    max-width: @content-max-width;
   }
 
   &__col {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
     max-width: 342px;
-    max-height: 689px;
+    height: 429px + 250px + @tile-gap;
+
     padding: 0 !important;
   }
 
   &__item {
-    position: flex;
     display: block;
     border-radius: @tile-radius;
     overflow: hidden;
-    height: 100%;
 
     &--big {
-      max-height: 429px;
+      height: 429px;
     }
 
     &--small {
-      max-height: 250px;
+      height: 250px;
     }
   }
 
