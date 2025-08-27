@@ -1,15 +1,21 @@
-.respond(@breakpoint) when (@breakpoint = mobile) {
+.respond(@breakpoint, @rules) when (@breakpoint = mobile) {
   @media (max-width: 639px) {
-    @rules();
+    & {
+      @rules();
+    }
   }
 }
-.respond(@breakpoint) when (@breakpoint = tablet) {
+.respond(@breakpoint, @rules) when (@breakpoint = tablet) {
   @media (min-width: 640px) {
-    @rules();
+    & {
+      @rules();
+    }
   }
 }
-.respond(@breakpoint) when (@breakpoint = desktop) {
-  @media (min-width: 1200pxs) {
-    @rules();
+.respond(@breakpoint, @rules) when (@breakpoint = desktop) {
+  @media (min-width: 1200px) {
+    & {
+      @rules();
+    }
   }
 }

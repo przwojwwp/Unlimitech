@@ -12,7 +12,7 @@ export default function Hero() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://picsum.photos/v2/list?page=2&limit=3");
+      const res = await fetch("https://picsum.photos/v2/list?page=2&limit=4");
       const data = await res.json();
       setSlides(
         data.map((s) => ({
@@ -36,11 +36,11 @@ export default function Hero() {
       appendDots: $(dotsRef.current),
       arrows: true,
       infinite: true,
-      speed: 600,
+      speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 5555000,
       pauseOnHover: true,
       adaptiveHeight: false,
       lazyLoad: "ondemand",
@@ -69,12 +69,12 @@ export default function Hero() {
                   loading="lazy"
                 />
                 <div className="hero__content">
-                  <h2 className="hero__title">{s.title}</h2>
+                  <h1 className="hero__title">{s.title}</h1>
                   <p className="hero__desc">{s.desc}</p>
-                  <a className="hero__cta" href={s.cta}>
-                    Zobacz więcej
-                  </a>
                 </div>
+                <a className="hero__cta" href={s.cta}>
+                  Zobacz więcej
+                </a>
               </div>
             ))}
           </div>
