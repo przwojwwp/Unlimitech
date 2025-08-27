@@ -67,19 +67,33 @@ export default function Navbar() {
             </div>
 
             <div className="navbar__icons">
-              <button className="navbar__icon-btn" aria-label="Ulubione">
-                <img
-                  className="navbar__icon"
-                  src={favouritesIcon}
-                  alt="Favourites Icon"
-                />
-              </button>
-              <button className="navbar__icon-btn" aria-label="Konto">
-                <img className="navbar__icon" src={userIcon} alt="User Icon" />
-              </button>
-              <button className="navbar__icon-btn" aria-label="Koszyk">
-                <img className="navbar__icon" src={cartIcon} alt="Cart Icon" />
-              </button>
+              <span className="navbar__icon-wrapper">
+                <button className="navbar__icon-btn" aria-label="Ulubione">
+                  <img
+                    className="navbar__icon"
+                    src={favouritesIcon}
+                    alt="Favourites Icon"
+                  />
+                </button>
+              </span>
+              <span className="navbar__icon-wrapper">
+                <button className="navbar__icon-btn" aria-label="Konto">
+                  <img
+                    className="navbar__icon"
+                    src={userIcon}
+                    alt="User Icon"
+                  />
+                </button>
+              </span>
+              <span className="navbar__icon-wrapper">
+                <button className="navbar__icon-btn" aria-label="Koszyk">
+                  <img
+                    className="navbar__icon"
+                    src={cartIcon}
+                    alt="Cart Icon"
+                  />
+                </button>
+              </span>
             </div>
           </div>
         </div>
