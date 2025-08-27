@@ -61,7 +61,7 @@
       font-size: 15px;
       font-weight: 500;
       color: #222;
-      transition: color 0.2s;
+      transition: color @hover-transition-time;
 
       &:hover {
         color: @color-blue-main;
@@ -100,17 +100,19 @@
       top: 4px;
       width: 36px;
       height: 36px;
-      border: 4px solid transparent;
       border-radius: 50%;
       background: @color-gray-background;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border 0.7s;
+
+      box-shadow: 0 0 0 0 @color-blue-main;
+      transition: box-shadow @hover-transition-time ease;
 
       &:hover {
-        border: 4px solid @color-blue-main;
+        box-shadow: 0 0 0 4px @color-blue-main;
+        background: #f7f8fa;
       }
     }
 
@@ -140,9 +142,11 @@
     border-radius: 50%;
     border: 1px solid @color-gray-stroke;
     box-sizing: border-box;
+    transition: border @hover-transition-time ease;
 
-    &:hover {
-      border: 4px solid @color-blue-main;
+    &:hover .navbar__icon-btn {
+      box-shadow: 0 0 0 4px @color-blue-main;
+      background: #f7f8fa;
     }
   }
 
@@ -156,13 +160,7 @@
     border: 1px solid @color-gray-stroke;
     background: @color-gray-background;
     cursor: pointer;
-    transition: border-color 0.2s, background-color 0.2s;
-  }
-
-  &__icon {
-    width: 20px;
-    height: 20px;
-    color: @color-text-dark;
-    transition: color 0.2s;
+    box-shadow: 0 0 0 0 @color-blue-main;
+    transition: box-shadow @hover-transition-time ease;
   }
 }
