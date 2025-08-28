@@ -3,6 +3,7 @@ import $ from "jquery";
 import "slick-carousel";
 import type { Product } from "../types";
 import { ProductCard } from "./ProductCard";
+import "./productsSlider.less";
 
 type Props = { items: Product[] };
 

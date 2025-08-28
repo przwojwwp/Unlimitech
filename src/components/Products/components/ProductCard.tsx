@@ -1,4 +1,5 @@
 import type { Product } from "../types";
+import "./productCard.less";
 
 type Props = { product: Product };
 

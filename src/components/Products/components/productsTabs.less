@@ -1,0 +1,32 @@
+.products {
+  &__tabs {
+    display: inline-flex;
+    gap: 18px;
+    max-width: 524px;
+    padding: 1px 0;
+
+    .products__tab {
+      .h2(); // miksin z typografii
+      position: relative;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color @hover-transition-time ease;
+
+      &:hover {
+        color: @color-blue-main;
+      }
+
+      &.is-active {
+        font-weight: 800;
+        color: @color-blue-main;
+      }
+    }
+  }
+}
+
+.products__separator {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+}

@@ -1,4 +1,5 @@
 import type { Tab } from "../types";
+import "./productsTabs.less";
 
 type Props = {
   active: Tab;
