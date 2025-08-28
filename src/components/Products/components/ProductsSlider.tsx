@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import $ from "jquery";
 import "slick-carousel";
 import type { Product } from "../types";
@@ -9,11 +9,14 @@ import ArrowBlur from "@assets/icons/arrow.svg?react";
 type Props = { items: Product[] };
 
 export const ProductsSlider = ({ items }: Props) => {
+  const [isSlider, setIsSlider] = useState(false);
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const dotsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!sliderRef.current || !items.length) return;
+
+    setIsSlider(false);
 
     const $el = $(sliderRef.current) as any;
     if ($el.hasClass("slick-initialized")) $el.slick("unslick");
@@ -40,6 +43,8 @@ export const ProductsSlider = ({ items }: Props) => {
       sliderRef.current.style.setProperty("--product-img-h", `${h}px`);
     }
 
+    setIsSlider(true);
+
     return () => {
       if ($el.hasClass("slick-initialized")) $el.slick("unslick");
     };
@@ -54,24 +59,26 @@ export const ProductsSlider = ({ items }: Props) => {
 
   return (
     <div className="products__box">
-      <div className="products__arrows" aria-hidden="true">
-        <button
-          type="button"
-          className="products__nav products__nav--prev"
-          aria-label="Poprzednie produkty"
-          onClick={goPrev}
-        >
-          <ArrowBlur />
-        </button>
-        <button
-          type="button"
-          className="products__nav products__nav--next"
-          aria-label="Następne produkty"
-          onClick={goNext}
-        >
-          <ArrowBlur />
-        </button>
-      </div>
+      {sliderRef.current && (
+        <div className="products__arrows" aria-hidden="true">
+          <button
+            type="button"
+            className="products__nav products__nav--prev"
+            aria-label="Poprzednie produkty"
+            onClick={goPrev}
+          >
+            <ArrowBlur />
+          </button>
+          <button
+            type="button"
+            className="products__nav products__nav--next"
+            aria-label="Następne produkty"
+            onClick={goNext}
+          >
+            <ArrowBlur />
+          </button>
+        </div>
+      )}
 
       <div className="products__slider" ref={sliderRef}>
         {items.map((p) => (
