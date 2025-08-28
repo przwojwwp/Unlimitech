@@ -9,10 +9,10 @@ export const App = () => {
     <>
       <Header />
       <main>
-        <Banner />
-        {/* <Categories />
+        {/* <Banner />
+        <Categories /> */}
         <Products />
-        <Newsletter /> */}
+        {/* <Newsletter /> */}
       </main>
     </>
   );
