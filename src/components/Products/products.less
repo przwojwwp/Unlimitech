@@ -12,6 +12,8 @@
   }
 
   &__slider {
+    margin-top: 56px;
+
     .slick-list {
       overflow: hidden;
     }
@@ -80,28 +82,8 @@
     position: relative;
   }
 
-  &__slider {
-    margin-top: 56px;
-  }
-
   &__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border: 1px solid #e6e6e6;
-    background: #fff;
-    color: #222;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     z-index: 2;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-
-    &:hover {
-      border-color: @color-blue-main;
-    }
   }
 
   .slick-prev {
@@ -111,7 +93,6 @@
     right: 8px;
   }
 
-  /* Dots przeniesione do kontenera niżej (jak w Hero) */
   &__dots {
     height: 48px;
     display: flex;
@@ -155,7 +136,6 @@
   }
 }
 
-/* Karta produktu */
 .product {
   background: #fff;
   border-radius: @card-radius;
@@ -176,7 +156,6 @@
     border-radius: @card-radius;
   }
 
-  /* Badges */
   &__flags {
     position: absolute;
     left: 10px;
@@ -226,7 +205,7 @@
     gap: 8px;
 
     .product__price {
-      background: #e11d48; /* malinowa jak na screenie */
+      background: #e11d48;
       color: #fff;
       font-weight: 700;
       border-radius: 6px;
