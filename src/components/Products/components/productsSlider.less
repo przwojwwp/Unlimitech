@@ -38,6 +38,7 @@
     z-index: 3;
     pointer-events: none;
     height: 36px;
+
     transform: translateY(-50%);
   }
 
@@ -46,8 +47,11 @@
     position: absolute;
     width: @arrow-size;
     height: @arrow-size;
-    background-color: transparent;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0px 4px 8px 0px #00000040;
 
     transition: background-color @hover-transition-time ease;
 
@@ -62,7 +66,10 @@
 
     &--prev {
       left: 8px;
-      transform: rotate(-0.5turn);
+
+      img {
+        transform: rotate(-0.5turn);
+      }
     }
     &--next {
       right: 8px;
