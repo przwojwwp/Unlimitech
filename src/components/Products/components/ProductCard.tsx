@@ -9,15 +9,15 @@ export const ProductCard = ({ product: p }: Props) => {
       <div className="product__figure">
         <div className="product__flags" aria-hidden="true">
           {p.flags.includes("BESTSELLER") && (
-            <span className="product__flag product__flag--purple">
+            <span className="product__flag product__flag--bestseller">
               BESTSELLER
             </span>
           )}
           {p.flags.includes("NOWOŚĆ") && (
-            <span className="product__flag product__flag--green">NOWOŚĆ</span>
+            <span className="product__flag product__flag--new">NOWOŚĆ</span>
           )}
           {p.flags.includes("PROMOCJA") && (
-            <span className="product__flag product__flag--red">PROMOCJA</span>
+            <span className="product__flag product__flag--promotion">PROMOCJA</span>
           )}
         </div>
 

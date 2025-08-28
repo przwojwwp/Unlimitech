@@ -19,5 +19,5 @@ export interface Product {
   flags: Flag[];
 }
 
-export const TABS = ["promotions", "new", "bestsellers"] as const;
+export const TABS = ["promotions", "new", "bestsellers", "all"] as const;
 export type Tab = (typeof TABS)[number];

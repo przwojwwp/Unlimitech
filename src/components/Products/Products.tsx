@@ -1,4 +1,3 @@
-// components/Products/Products.tsx
 import { useEffect, useMemo, useState } from "react";
 import "./products.less";
 import { ProductsTabs } from "./components/ProductsTabs";
@@ -7,24 +6,32 @@ import type { PicsumPhoto, Product, Tab } from "./types";
 import { makeProduct } from "./utils";
 
 export const Products = () => {
-  const [tab, setTab] = useState<Tab>("promotions");
+  const [tab, setTab] = useState<Tab>("all");
   const [all, setAll] = useState<Product[]>([]);
 
   useEffect(() => {
     (async () => {
       const res = await fetch("https://picsum.photos/v2/list?page=3&limit=24");
       const data = (await res.json()) as PicsumPhoto[];
-      setAll(data.map((x, i) => makeProduct(x, i)));
+      const products = data.map((x, i) => makeProduct(x, i));
+      setAll(products);
     })();
   }, []);
 
   const data = useMemo<Product[]>(() => {
     if (!all.length) return [];
-    if (tab === "promotions")
+    if (tab === "promotions") {
       return all.filter((p) => p.flags.includes("PROMOCJA")).slice(0, 12);
-    if (tab === "new")
+    }
+    if (tab === "new") {
       return all.filter((p) => p.flags.includes("NOWOŚĆ")).slice(0, 12);
-    return all.filter((p) => p.flags.includes("BESTSELLER")).slice(0, 12);
+    }
+
+    if (tab === "bestsellers") {
+      return all.filter((p) => p.flags.includes("BESTSELLER")).slice(0, 12);
+    }
+
+    return all;
   }, [tab, all]);
 
   return (
@@ -37,16 +44,14 @@ export const Products = () => {
 
           <ProductsTabs active={tab} onChange={setTab} />
 
-          <a
-            className="products__all"
-            href="#"
-            aria-label="Zobacz wszystkie produkty"
-          >
-            Zobacz wszystkie
-          </a>
+          <button onClick={() => setTab("all")}>
+            <a className="products__all" aria-label="Zobacz wszystkie produkty">
+              Zobacz wszystkie
+            </a>
+          </button>
         </header>
 
-        <ProductsSlider items={data} />
+        <ProductsSlider key={tab} items={data} />
       </div>
     </section>
   );
