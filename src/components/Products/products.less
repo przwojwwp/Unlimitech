@@ -1,0 +1,248 @@
+@card-radius: 16px;
+@dot-gap: 10px;
+
+.products {
+  margin: 80px auto 0;
+
+  .container {
+    max-width: @content-max-width;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__slider {
+    .slick-list {
+      overflow: hidden;
+    }
+
+    .slick-track {
+      display: flex;
+    }
+
+    .slick-slide {
+      width: 342px !important;
+      margin-right: (32px / 3);
+      height: auto;
+    }
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .products__separator {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  &__tabs {
+    display: inline-flex;
+    gap: 18px;
+    max-width: 524px;
+    padding: 1px 0;
+
+    .products__tab {
+      .h2();
+      position: relative;
+      font-weight: 400;
+      cursor: pointer;
+      transition: color @hover-transition-time ease;
+
+      &:hover {
+        color: @color-blue-main;
+      }
+
+      &.is-active {
+        font-weight: 800;
+        color: @color-blue-main;
+      }
+    }
+  }
+
+  &__all {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0%;
+    transition: color @hover-transition-time ease;
+
+    &:hover {
+      color: @color-blue-main;
+    }
+  }
+
+  &__box {
+    position: relative;
+  }
+
+  &__slider {
+    margin-top: 56px;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    color: #222;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      border-color: @color-blue-main;
+    }
+  }
+
+  .slick-prev {
+    left: 8px;
+  }
+  .slick-next {
+    right: 8px;
+  }
+
+  /* Dots przeniesione do kontenera niżej (jak w Hero) */
+  &__dots {
+    height: 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .slick-dots {
+      position: static;
+      display: inline-flex;
+      gap: @dot-gap;
+      padding: 0;
+      margin: 0;
+      height: 16px;
+      li {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button {
+        text-indent: -9999px;
+        overflow: hidden;
+        padding: 0;
+        border: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #9aa0a6;
+      }
+      li.slick-active {
+        outline: 1px solid @color-blue-main;
+        border-radius: 50%;
+        button {
+          width: 4px;
+          height: 4px;
+          background: @color-blue-main;
+        }
+      }
+    }
+  }
+}
+
+/* Karta produktu */
+.product {
+  background: #fff;
+  border-radius: @card-radius;
+  overflow: hidden;
+  max-width: 342px;
+
+  &__figure {
+    position: relative;
+    max-width: 342px;
+    max-height: 456px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 456px;
+    object-fit: cover;
+    display: block;
+    border-radius: @card-radius;
+  }
+
+  /* Badges */
+  &__flags {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: grid;
+    gap: 6px;
+    z-index: 1;
+  }
+  &__flag {
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    color: #fff;
+    &--purple {
+      background: #7c3aed;
+    }
+    &--green {
+      background: #16a34a;
+    }
+    &--red {
+      background: #ef4444;
+    }
+  }
+
+  &__title {
+    margin: 0 2px 6px;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: @color-text-dark;
+  }
+
+  &__meta {
+    margin: 0 2px 6px;
+    font-size: 12px;
+    color: #666;
+    .product__brand {
+      margin-right: 6px;
+    }
+  }
+
+  &__prices {
+    margin: 0 2px 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .product__price {
+      background: #e11d48; /* malinowa jak na screenie */
+      color: #fff;
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-size: 14px;
+    }
+    .product__old {
+      color: #888;
+      text-decoration: line-through;
+      font-size: 13px;
+    }
+  }
+
+  &__lowest {
+    margin: 0 2px;
+    font-size: 11px;
+    color: #7b7b7b;
+  }
+}
