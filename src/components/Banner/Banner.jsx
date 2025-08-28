@@ -46,9 +46,9 @@ export const Banner = () => {
       adaptiveHeight: false,
       lazyLoad: "ondemand",
       prevArrow:
-        '<button type="button" class="banner__nav slick-prev" aria-label="Poprzedni slajd">‹</button>',
+        '<button type="button" class="banner__nav slick-prev" aria-label="Poprzedni slajd"><img></button>',
       nextArrow:
-        '<button type="button" class="banner__nav slick-next" aria-label="Następny slajd">›</button>',
+        '<button type="button" class="banner__nav slick-next" aria-label="Następny slajd"></button>',
     });
 
     return () => {

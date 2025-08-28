@@ -1,6 +1,11 @@
 @product-width: 342px;
 @slides-gap: (32px / 3);
 @dot-gap: 10px;
+@arrow-size: 40px;
+
+.products {
+  --product-img-h: 456px;
+}
 
 .products {
   &__box {
@@ -8,6 +13,7 @@
   }
 
   &__slider {
+    position: relative;
     margin-top: 56px;
 
     .slick-list {
@@ -24,33 +30,45 @@
     }
   }
 
-  &__nav {
+  &__arrows {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    left: 0;
+    right: 0;
+    top: calc((var(--product-img-h) / 2));
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  &__nav {
+    pointer-events: auto;
+    position: absolute;
+    width: @arrow-size;
+    height: @arrow-size;
     border: 1px solid #e6e6e6;
     background: #fff;
     color: #222;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    transition: border-color 0.2s ease;
 
     &:hover {
       border-color: @color-blue-main;
     }
+
+    &--prev {
+      left: 8px;
+    }
+    &--next {
+      right: 8px;
+    }
   }
 
-  .slick-prev {
-    left: 8px;
-  }
-  .slick-next {
-    right: 8px;
-  }
-
+  /* kropki bez zmian */
   &__dots {
     height: 48px;
     display: flex;
@@ -72,7 +90,6 @@
         align-items: center;
         justify-content: center;
       }
-
       button {
         text-indent: -9999px;
         overflow: hidden;
@@ -83,11 +100,9 @@
         border-radius: 50%;
         background: #9aa0a6;
       }
-
       li.slick-active {
         outline: 1px solid @color-blue-main;
         border-radius: 50%;
-
         button {
           width: 4px;
           height: 4px;

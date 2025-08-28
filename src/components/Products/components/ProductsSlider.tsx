@@ -4,6 +4,7 @@ import "slick-carousel";
 import type { Product } from "../types";
 import { ProductCard } from "./ProductCard";
 import "./productsSlider.less";
+import ArrowBlurUrl from "@assets/icons/arrow-blur.svg";
 
 type Props = { items: Product[] };
 
@@ -21,7 +22,7 @@ export const ProductsSlider = ({ items }: Props) => {
       accessibility: true,
       dots: true,
       appendDots: $(dotsRef.current as HTMLDivElement),
-      arrows: true,
+      arrows: false,
       infinite: false,
       speed: 400,
       variableWidth: true,
@@ -30,19 +31,48 @@ export const ProductsSlider = ({ items }: Props) => {
       autoplay: false,
       adaptiveHeight: false,
       lazyLoad: "ondemand",
-      prevArrow:
-        '<button type="button" class="products__nav slick-prev" aria-label="Poprzednie produkty">‹</button>',
-      nextArrow:
-        '<button type="button" class="products__nav slick-next" aria-label="Następne produkty">›</button>',
     });
+
+    const firstImg =
+      sliderRef.current.querySelector<HTMLImageElement>(".product__img");
+    if (firstImg) {
+      const h = firstImg.clientHeight || firstImg.naturalHeight || 456;
+      sliderRef.current.style.setProperty("--product-img-h", `${h}px`);
+    }
 
     return () => {
       if ($el.hasClass("slick-initialized")) $el.slick("unslick");
     };
   }, [items]);
 
+  const goPrev = () => {
+    if (sliderRef.current) ($(sliderRef.current) as any).slick("slickPrev");
+  };
+  const goNext = () => {
+    if (sliderRef.current) ($(sliderRef.current) as any).slick("slickNext");
+  };
+
   return (
     <div className="products__box">
+      <div className="products__arrows" aria-hidden="true">
+        <button
+          type="button"
+          className="products__nav products__nav--prev"
+          aria-label="Poprzednie produkty"
+          onClick={goPrev}
+        >
+          <img src={ArrowBlurUrl} alt="" />
+        </button>
+        <button
+          type="button"
+          className="products__nav products__nav--next"
+          aria-label="Następne produkty"
+          onClick={goNext}
+        >
+          ›
+        </button>
+      </div>
+
       <div className="products__slider" ref={sliderRef}>
         {items.map((p) => (
           <ProductCard key={p.id} product={p} />
