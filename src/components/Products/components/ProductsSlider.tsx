@@ -4,7 +4,6 @@ import "slick-carousel";
 import type { Product } from "../types";
 import { ProductCard } from "./ProductCard";
 import "./productsSlider.less";
-import ArrowBlurUrl from "@assets/icons/arrow.svg";
 import ArrowBlur from "@assets/icons/arrow.svg?react";
 
 type Props = { items: Product[] };

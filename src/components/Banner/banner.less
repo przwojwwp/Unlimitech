@@ -1,6 +1,7 @@
 @banner-img-h: 520px;
 @banner-dots-h: 48px;
 @banner-radius: 16px;
+@arrow-size: 36px;
 
 .banner {
   .container {
@@ -12,6 +13,44 @@
   &__box {
     position: relative;
     overflow: hidden;
+  }
+
+  &__arrows {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(520px / 2);
+    z-index: 3;
+    pointer-events: none;
+    height: 36px;
+
+    transform: translateY(-50%);
+  }
+
+  &__nav {
+    pointer-events: auto;
+    position: absolute;
+    width: @arrow-size;
+    height: @arrow-size;
+    border-radius: 50%;
+    transition: background-color @hover-transition-time ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      background-color: @color-blue-main;
+    }
+
+    &--prev {
+      left: 8px;
+      transform: rotate(-0.5turn);
+    }
+    &--next {
+      right: 8px;
+    }
   }
 
   .slick-dotted.slick-slider {
