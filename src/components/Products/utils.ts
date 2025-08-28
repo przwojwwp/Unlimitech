@@ -4,13 +4,12 @@ export const crop = (id: string | number, w = 520, h = 640): string =>
   `https://picsum.photos/id/${id}/${w}/${h}`;
 
 export const makeProduct = (src: PicsumPhoto, i: number): Product => {
-  const priceOld = 399.99;
   const price = 350.1;
+  const isPromo = i % 2 !== 0;
+  const priceOld = isPromo ? 399.99 : price;
 
   let flags: Flag[];
   flags = i % 2 === 0 ? ["NOWOŚĆ", "BESTSELLER"] : ["PROMOCJA"];
-
-  console.log(i % 2);
 
   return {
     id: src.id,

@@ -17,30 +17,49 @@ export const ProductCard = ({ product: p }: Props) => {
             <span className="product__flag product__flag--new">NOWOŚĆ</span>
           )}
           {p.flags.includes("PROMOCJA") && (
-            <span className="product__flag product__flag--promotion">PROMOCJA</span>
+            <span className="product__flag product__flag--promotion">
+              PROMOCJA
+            </span>
           )}
         </div>
 
         <img className="product__img" src={p.img} alt={p.alt} loading="lazy" />
       </div>
 
-      <h3 className="product__title">{p.title}</h3>
+      <div className="product__info">
+        <h3 className="product__title">{p.title}</h3>
 
-      <div className="product__meta">
-        <span className="product__brand">{p.brand}</span>
-        <span className="product__stock">
-          {p.inStock ? "Dostępny" : "Niedostępny"}
-        </span>
+        <div className="product__meta">
+          <div>
+            <span className="product__brand">{p.brand}</span>
+            <span className="product__separator">|</span>
+            <span className="product__stock">
+              {p.inStock ? "Dostępny" : "Niedostępny"}
+            </span>
+          </div>
+        </div>
+        {p.priceOld === p.price && (
+          <div className="product__prices">
+            <span className="product__price">{p.price.toFixed(2)}zł</span>
+          </div>
+        )}
+        {p.priceOld !== p.price && (
+          <>
+            <div className="product__prices">
+              <span className="product__price--promo">
+                {p.price.toFixed(2)}zł
+              </span>
+              <span className="product__price--old">
+                {p.priceOld.toFixed(2)}zł
+              </span>
+            </div>
+
+            <p className="product__lowest">
+              Najniższa cena z 30 dni przed obniżką: {p.lowest.toFixed(2)}zł
+            </p>
+          </>
+        )}
       </div>
-
-      <div className="product__prices">
-        <span className="product__price">{p.price.toFixed(2)}zł</span>
-        <span className="product__old">{p.priceOld.toFixed(2)}zł</span>
-      </div>
-
-      <p className="product__lowest">
-        Najniższa cena z 30 dni przed obniżką: {p.lowest.toFixed(2)}zł
-      </p>
     </article>
   );
 };
