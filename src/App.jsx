@@ -9,9 +9,9 @@ export const App = () => {
     <>
       <Header />
       <main>
-        <Banner />
+        {/* <Banner /> */}
         {/* <Categories /> */}
-        <Products />
+        {/* <Products /> */}
         <Newsletter />
       </main>
     </>

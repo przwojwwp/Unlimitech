@@ -1,46 +1,44 @@
-// newsletter.less
-@blue: #0d6efd; // tło z figmy (dopasuj do projektu)
-@white: #fff;
-@text: #eaf2ff;
-@radius: 16px;
+@minimal-padding: 43px;
 
 .newsletter {
-  margin: 40px 0;
+  margin: 94px auto 0;
+
+  .container {
+    max-width: @content-max-width;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .newsletter__box {
-    background: @blue;
-    color: @white;
-    border-radius: @radius;
-    padding: 24px;
     position: relative;
-    overflow: hidden;
+    max-width: 1400px;
+    padding: @minimal-padding;
 
-    @media (min-width: 992px) {
-      // ~Bootstrap md
-      padding: 32px 40px;
-    }
+    background: @color-blue-main;
+    color: #fff;
+    border-radius: 16px;
+
+    overflow: hidden;
   }
 
   &__copy {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    max-width: 552px;
+    padding: 0 !important;
   }
 
   &__title {
-    margin: 0 0 8px;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.2;
-
-    @media (min-width: 992px) {
-      font-size: 32px;
-    }
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 100%;
   }
 
   &__desc {
-    margin: 0;
-    color: @text;
-    line-height: 1.6;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
   }
 
   &__decor {
@@ -74,8 +72,8 @@
   &__input {
     height: 44px;
     border-radius: 999px;
-    border: 2px solid fade(@white, 80%);
-    background: @white;
+    border: 2px solid fade(#fff, 80%);
+    background: #fff;
     color: #222;
     padding-right: 56px; // miejsce na przycisk
     padding-left: 18px;
@@ -85,7 +83,7 @@
       color: #8b8b8b;
     }
     &:focus {
-      border-color: @white;
+      border-color: #fff;
       outline: 0;
     }
   }
@@ -98,9 +96,9 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 2px solid @white;
+    border: 2px solid #fff;
     background: #222;
-    color: @white;
+    color: #fff;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -156,23 +154,11 @@
   &__consent {
     margin: 8px 0 0;
     a {
-      color: @white;
+      color: #fff;
       text-decoration: underline;
     }
     input {
       margin-right: 6px;
     }
-  }
-
-  /* Utility: ukrycie dla czytników */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
   }
 }

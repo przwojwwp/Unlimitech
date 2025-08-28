@@ -20,9 +20,9 @@ export const Newsletter: React.FC = () => {
       <div className="container">
         <div className="row newsletter__box" ref={rootRef}>
           <header className="col-sm-7 newsletter__copy">
-            <h2 id="newsletter-heading" className="newsletter__title">
+            <div id="newsletter-heading" className="newsletter__title">
               Chcesz otrzymać 5% zniżki na swoje zakupy?
-            </h2>
+            </div>
             <p className="newsletter__desc">
               Zapisz się do naszego newslettera i jako pierwsza dowiedz się o
               nowościach, promocjach i ofertach specjalnych!
