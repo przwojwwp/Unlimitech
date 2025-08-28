@@ -86,7 +86,8 @@
 
     .slick-dots {
       position: static;
-      display: inline-flex;
+      display: flex;
+      width: auto;
       gap: @dot-gap;
       padding: 0;
       margin: 0;
@@ -99,6 +100,7 @@
         align-items: center;
         justify-content: center;
       }
+
       button {
         text-indent: -9999px;
         overflow: hidden;
@@ -109,9 +111,11 @@
         border-radius: 50%;
         background: #9aa0a6;
       }
+
       li.slick-active {
         outline: 1px solid @color-blue-main;
         border-radius: 50%;
+
         button {
           width: 4px;
           height: 4px;
