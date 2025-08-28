@@ -1,43 +1,15 @@
-import { useRef, useState, useId, FormEvent } from "react";
+import { useEffect, useRef } from "react";
+import { initNewsletter } from "./newsletter.jq";
 import "./newsletter.less";
 
-type Props = {
-  onSubmit?: (email: string) => void | Promise<void>;
-  decorSrc?: string; // opcjonalna grafika dekoracyjna po lewej
-};
+export const Newsletter: React.FC = () => {
+  const rootRef = useRef<HTMLDivElement>(null);
 
-const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-
-export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
-  const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const emailId = useId();
-  const consentId = useId();
-
-  const emailRef = useRef<HTMLInputElement>(null);
-  const consentRef = useRef<HTMLInputElement>(null);
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setError(null);
-
-    if (!isValidEmail(email)) {
-      setError("Proszę podać prawidłowy adres e-mail.");
-      emailRef.current?.focus();
-      return;
-    }
-    if (!consent) {
-      setError("Zaznacz zgodę na przetwarzanie danych.");
-      consentRef.current?.focus();
-      return;
-    }
-
-    await onSubmit?.(email);
-    setEmail("");
-    setConsent(false);
-  };
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const destroy = initNewsletter(rootRef.current);
+    return destroy;
+  }, []);
 
   return (
     <section
@@ -46,7 +18,7 @@ export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
       aria-labelledby="newsletter-heading"
     >
       <div className="container">
-        <div className="row newsletter__box">
+        <div className="row newsletter__box" ref={rootRef}>
           <header className="col-sm-7 newsletter__copy">
             <h2 id="newsletter-heading" className="newsletter__title">
               Chcesz otrzymać 5% zniżki na swoje zakupy?
@@ -55,8 +27,7 @@ export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
               Zapisz się do naszego newslettera i jako pierwsza dowiedz się o
               nowościach, promocjach i ofertach specjalnych!
             </p>
-
-            {decorSrc && (
+            {/* {decorSrc && (
               <img
                 className="newsletter__decor"
                 src={decorSrc}
@@ -64,28 +35,18 @@ export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
                 loading="lazy"
                 aria-hidden="true"
               />
-            )}
+            )} */}
           </header>
 
           <div className="col-sm-5 newsletter__form-col">
-            <form
-              className="newsletter__form"
-              noValidate
-              onSubmit={handleSubmit}
-            >
+            <form className="newsletter__form" noValidate>
               <div className="form-group newsletter__input-wrap">
-                <label className="sr-only" htmlFor={emailId}>
-                  Twój adres e-mail
-                </label>
+                <label className="sr-only">Twój adres e-mail</label>
 
                 <input
-                  id={emailId}
-                  ref={emailRef}
                   className="form-control newsletter__input"
                   type="email"
                   placeholder="Twój adres email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   aria-describedby="newsletter-error"
                 />
 
@@ -115,13 +76,15 @@ export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
                   id="newsletter-error"
                   className="newsletter__error alert alert-danger"
                   role="alert"
-                  hidden={!error}
+                  hidden
                 >
                   <span
                     className="glyphicon glyphicon-warning-sign"
                     aria-hidden="true"
                   />
-                  <span className="newsletter__error-text">{error}</span>
+                  <span className="newsletter__error-text">
+                    Proszę podać prawidłowy adres e-mail.
+                  </span>
                   <span
                     className="newsletter__error-arrow"
                     aria-hidden="true"
@@ -130,14 +93,8 @@ export const Newsletter: React.FC<Props> = ({ onSubmit, decorSrc }) => {
               </div>
 
               <div className="checkbox newsletter__consent">
-                <label htmlFor={consentId}>
-                  <input
-                    id={consentId}
-                    ref={consentRef}
-                    type="checkbox"
-                    checked={consent}
-                    onChange={(e) => setConsent(e.target.checked)}
-                  />
+                <label>
+                  <input type="checkbox" />
                   Akceptuję{" "}
                   <a href="#" target="_blank" rel="noopener">
                     Regulamin
