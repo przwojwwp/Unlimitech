@@ -10,9 +10,9 @@ export const App = () => {
       <Header />
       <main>
         <Banner />
-        <Categories />
+        {/* <Categories />
         <Products />
-        <Newsletter />
+        <Newsletter /> */}
       </main>
     </>
   );

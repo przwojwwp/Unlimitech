@@ -45,11 +45,11 @@
     }
 
     &--prev {
-      left: 8px;
+      left: 48px;
       transform: rotate(-0.5turn);
     }
     &--next {
-      right: 8px;
+      right: 47px;
     }
   }
 
@@ -104,48 +104,20 @@
     padding: 4px 16px;
     border-radius: 8px;
 
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-wrap: nowrap;
+
     color: @color-text-light;
     background: transparent;
     border: 1px solid @color-text-light;
-    font-weight: 600;
     text-decoration: none;
-    backdrop-filter: blur(2px);
-    transition: background 0.2s, transform 0.2s;
 
     &:hover {
       color: @color-text-light;
       background: @color-blue-main;
     }
-  }
-
-  .slick-prev,
-  .slick-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid fade(#fff, 60%);
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(2px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    transition: background 0.2s, border-color 0.2s;
-    &:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: #fff;
-    }
-  }
-  .slick-prev {
-    left: 20px;
-  }
-  .slick-next {
-    right: 20px;
   }
 
   &__dots {
