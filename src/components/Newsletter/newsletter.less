@@ -1,0 +1,178 @@
+// newsletter.less
+@blue: #0d6efd; // tło z figmy (dopasuj do projektu)
+@white: #fff;
+@text: #eaf2ff;
+@radius: 16px;
+
+.newsletter {
+  margin: 40px 0;
+
+  .newsletter__box {
+    background: @blue;
+    color: @white;
+    border-radius: @radius;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: 992px) {
+      // ~Bootstrap md
+      padding: 32px 40px;
+    }
+  }
+
+  &__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+
+    @media (min-width: 992px) {
+      font-size: 32px;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    color: @text;
+    line-height: 1.6;
+  }
+
+  &__decor {
+    position: absolute;
+    left: -8px;
+    bottom: -16px;
+    width: 180px;
+    height: auto;
+    opacity: 0.35;
+    pointer-events: none;
+
+    @media (min-width: 992px) {
+      width: 220px;
+    }
+  }
+
+  &__form-col {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__input-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    height: 44px;
+    border-radius: 999px;
+    border: 2px solid fade(@white, 80%);
+    background: @white;
+    color: #222;
+    padding-right: 56px; // miejsce na przycisk
+    padding-left: 18px;
+    box-shadow: none;
+
+    &::placeholder {
+      color: #8b8b8b;
+    }
+    &:focus {
+      border-color: @white;
+      outline: 0;
+    }
+  }
+
+  &__submit {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid @white;
+    background: #222;
+    color: @white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background 0.15s ease;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-50%) scale(1.04);
+      background: #111;
+    }
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+  }
+
+  /* Dymek błędu jak na screenshocie (po prawej, nad inputem) */
+  &__error {
+    position: absolute;
+    right: 6px;
+    top: -34px;
+    padding: 6px 10px;
+    margin: 0;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+    background: #f8d7da; // Bootstrap danger bg
+    border-color: #f5c6cb;
+    color: #842029;
+
+    .glyphicon {
+      margin-right: 4px;
+    }
+
+    &-arrow {
+      content: "";
+      position: absolute;
+      left: auto;
+      right: 18px;
+      bottom: -6px;
+      width: 12px;
+      height: 12px;
+      background: #f8d7da;
+      border-right: 1px solid #f5c6cb;
+      border-bottom: 1px solid #f5c6cb;
+      transform: rotate(45deg);
+    }
+  }
+
+  &__consent {
+    margin: 8px 0 0;
+    a {
+      color: @white;
+      text-decoration: underline;
+    }
+    input {
+      margin-right: 6px;
+    }
+  }
+
+  /* Utility: ukrycie dla czytników */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+}
