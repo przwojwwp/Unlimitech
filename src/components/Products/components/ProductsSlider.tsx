@@ -4,7 +4,8 @@ import "slick-carousel";
 import type { Product } from "../types";
 import { ProductCard } from "./ProductCard";
 import "./productsSlider.less";
-import ArrowBlurUrl from "@assets/icons/arrow-blur.svg";
+import ArrowBlurUrl from "@assets/icons/arrow.svg";
+import ArrowBlur from "@assets/icons/arrow.svg?react";
 
 type Props = { items: Product[] };
 
@@ -61,7 +62,7 @@ export const ProductsSlider = ({ items }: Props) => {
           aria-label="Poprzednie produkty"
           onClick={goPrev}
         >
-          <img src={ArrowBlurUrl} alt="" />
+          <ArrowBlur />
         </button>
         <button
           type="button"
@@ -69,7 +70,7 @@ export const ProductsSlider = ({ items }: Props) => {
           aria-label="Następne produkty"
           onClick={goNext}
         >
-          ›
+          <ArrowBlur />
         </button>
       </div>
 
