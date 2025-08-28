@@ -11,7 +11,7 @@ export const Products = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://picsum.photos/v2/list?page=3&limit=24");
+      const res = await fetch("https://picsum.photos/v2/list?page=3&limit=12");
       const data = (await res.json()) as PicsumPhoto[];
       const products = data.map((x, i) => makeProduct(x, i));
       setAll(products);
