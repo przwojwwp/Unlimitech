@@ -3,9 +3,9 @@ import $ from "jquery";
 export function initNewsletter(root: HTMLElement) {
   const $root = $(root);
   const $form = $root.find(".newsletter__form");
+  let errorTimeout: number | null = null;
   if (!$form.length) return () => {};
 
-  // UŻYWAJ KLAS zamiast globalnych ID — wtedy możesz mieć wiele instancji
   const $email = $root.find(".newsletter__input");
   const $consent = $root.find(".newsletter__consent input[type=checkbox]");
   const $error = $root.find(".newsletter__error");
@@ -16,10 +16,15 @@ export function initNewsletter(root: HTMLElement) {
       .find(".newsletter__error-text")
       .text(msg || "Proszę podać prawidłowy adres e-mail.");
     $error.prop("hidden", false);
+
+    if (errorTimeout) clearTimeout(errorTimeout);
+    errorTimeout = window.setTimeout(() => {
+      hideError();
+      errorTimeout = null;
+    }, 3000);
   };
   const hideError = () => $error.prop("hidden", true);
 
-  // Namespacing zdarzeń, żeby łatwo zdjąć
   $email.on("input.nl blur.nl", () => {
     const val = String($email.val() || "");
     if (val && isValidEmail(val)) hideError();
@@ -57,7 +62,6 @@ export function initNewsletter(root: HTMLElement) {
       });
   });
 
-  // cleanup
   return () => {
     $email.off(".nl");
     $form.off(".nl");

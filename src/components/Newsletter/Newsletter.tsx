@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { initNewsletter } from "./newsletter.jq";
 import "./newsletter.less";
 import Decoration from "@assets/icons/decoration-newsletter.svg?react";
+import Submit from "@assets/icons/newsletter-submit.svg?react";
+import Warning from "@assets/icons/newsletter-waring.svg?react";
 
 export const Newsletter: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -47,22 +49,11 @@ export const Newsletter: React.FC = () => {
                   type="submit"
                   className="newsletter__submit"
                   aria-label="Zapisz się do newslettera"
+                  aria-hidden="true"
                 >
                   <span className="sr-only">Wyślij</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="newsletter__submit-icon"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M5 12h12M12 5l7 7-7 7"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+
+                  <Submit className="newsletter__submit__icon" />
                 </button>
 
                 <div
@@ -71,10 +62,7 @@ export const Newsletter: React.FC = () => {
                   role="alert"
                   hidden
                 >
-                  <span
-                    className="glyphicon glyphicon-warning-sign"
-                    aria-hidden="true"
-                  />
+                  <Warning className="glyphicon" />
                   <span className="newsletter__error-text">
                     Proszę podać prawidłowy adres e-mail.
                   </span>

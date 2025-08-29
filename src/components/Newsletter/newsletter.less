@@ -75,16 +75,15 @@
   &__input-wrap {
     position: relative;
     margin-bottom: 7px !important;
-    border-radius: 100px;
-    overflow: hidden;
   }
 
-  &__input {
+  input[type="email"] {
     height: 48px !important;
     border: 2px solid fade(#fff, 80%);
     background: #fff;
     color: #222;
     box-shadow: none;
+    border-radius: 100px;
 
     &::placeholder {
       color: #8b8b8b;
@@ -97,63 +96,64 @@
 
   &__submit {
     position: absolute;
-    right: 6px;
+    right: 4px;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background: #222;
-    color: #fff;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.15s ease, background 0.15s ease;
 
     &:hover,
     &:focus {
-      transform: translateY(-50%) scale(1.04);
-      background: #111;
-    }
-
-    &-icon {
-      width: 20px;
-      height: 20px;
-      display: block;
+      &__icon {
+        stroke: @color-blue-main;
+        fill: @color-blue-main;
+      }
     }
   }
 
   &__error {
     position: absolute;
-    right: 6px;
+    display: flex;
+    align-items: center;
+    left: 43px;
     top: -34px;
-    padding: 6px 10px;
-    margin: 0;
-    border-radius: 6px;
+    width: 253px;
+    height: 24px;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 4px;
     font-size: 12px;
     line-height: 1.2;
     white-space: nowrap;
-    background: #f8d7da;
-    border-color: #f5c6cb;
-    color: #842029;
+    background: #ffecec;
 
+    color: #c82020;
     .glyphicon {
-      margin-right: 4px;
+      width: 13.999993324279785px;
+      height: 12.538747787475586px;
+      top: 0.73px;
+
+      margin: 5px 2px 5px 6px;
+    }
+
+    &-text {
+      z-index: 2;
     }
 
     &-arrow {
       content: "";
       position: absolute;
-      left: auto;
-      right: 18px;
+      left: 50%;
       bottom: -6px;
-      width: 12px;
-      height: 12px;
-      background: #f8d7da;
-      border-right: 1px solid #f5c6cb;
-      border-bottom: 1px solid #f5c6cb;
-      transform: rotate(45deg);
+      width: 14px;
+      height: 14px;
+      z-index: 0;
+      background: inherit;
+      transform: translateX(-50%) rotate(45deg);
+
+      &__error[hidden] {
+        display: none;
+      }
     }
   }
 
