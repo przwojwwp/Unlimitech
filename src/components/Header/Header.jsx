@@ -1,7 +1,7 @@
 import "./header.less";
 
-import Topbar from "./Topbar";
-import Navbar from "./Navbar";
+import Topbar from "./components/Topbar/Topbar";
+import Navbar from "./components/Navbar/Navbar";
 
 export function Header() {
   return (

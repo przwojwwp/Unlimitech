@@ -1,7 +1,7 @@
-import phoneIcon from "../../assets/icons/phone.svg";
-import writeIcon from "../../assets/icons/write.svg";
-import shippingIcon from "../../assets/icons/shipping.svg";
-import returnGoodsIcon from "../../assets/icons/return-goods.svg";
+import phoneIcon from "@assets/icons/phone.svg";
+import writeIcon from "@assets/icons/write.svg";
+import shippingIcon from "@assets/icons/shipping.svg";
+import returnGoodsIcon from "@assets/icons/return-goods.svg";
 
 import "./topbar.less";
 

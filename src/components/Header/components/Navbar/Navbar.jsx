@@ -1,9 +1,9 @@
 import "./navbar.less";
-import searchIcon from "../../assets/icons/search.svg";
-import favouritesIcon from "../../assets/icons/favourites.svg";
-import userIcon from "../../assets/icons/user.svg";
-import cartIcon from "../../assets/icons/cart.svg";
-import unlimitechLogo from "../../assets/icons/unlimitech-logo.svg";
+import searchIcon from "@assets/icons/search.svg";
+import favouritesIcon from "@assets/icons/favourites.svg";
+import userIcon from "@assets/icons/user.svg";
+import cartIcon from "@assets/icons/cart.svg";
+import unlimitechLogo from "@assets/icons/unlimitech-logo.svg";
 
 export default function Navbar() {
   return (
