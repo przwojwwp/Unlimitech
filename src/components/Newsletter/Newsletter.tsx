@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { initNewsletter } from "./newsletter.jq";
 import "./newsletter.less";
+import Decoration from "@assets/icons/decoration-newsletter.svg?react";
 
 export const Newsletter: React.FC = () => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -19,6 +20,7 @@ export const Newsletter: React.FC = () => {
     >
       <div className="container">
         <div className="row newsletter__box" ref={rootRef}>
+          <Decoration className="newsletter__decoration" />
           <header className="col-sm-7 newsletter__copy">
             <div id="newsletter-heading" className="newsletter__title">
               Chcesz otrzymać 5% zniżki na swoje zakupy?
@@ -27,15 +29,6 @@ export const Newsletter: React.FC = () => {
               Zapisz się do naszego newslettera i jako pierwsza dowiedz się o
               nowościach, promocjach i ofertach specjalnych!
             </p>
-            {/* {decorSrc && (
-              <img
-                className="newsletter__decor"
-                src={decorSrc}
-                alt=""
-                loading="lazy"
-                aria-hidden="true"
-              />
-            )} */}
           </header>
 
           <div className="col-sm-5 newsletter__form-col">
@@ -93,8 +86,12 @@ export const Newsletter: React.FC = () => {
               </div>
 
               <div className="checkbox newsletter__consent">
-                <label>
-                  <input type="checkbox" />
+                <input
+                  id="newsletter__checkbox"
+                  type="checkbox"
+                  aria-required="true"
+                />
+                <label htmlFor="newsletter__checkbox">
                   Akceptuję{" "}
                   <a href="#" target="_blank" rel="noopener">
                     Regulamin

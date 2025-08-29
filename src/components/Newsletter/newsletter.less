@@ -1,25 +1,33 @@
-@minimal-padding: 43px;
-
 .newsletter {
   margin: 94px auto 0;
 
   .container {
     max-width: @content-max-width;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .newsletter__box {
     position: relative;
     max-width: 1400px;
-    padding: @minimal-padding;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    padding-right: clamp(20px, 7vw, 98px);
+    padding-left: clamp(20px, 14.42857142857143vw, 208px);
 
     background: @color-blue-main;
     color: #fff;
     border-radius: 16px;
 
     overflow: hidden;
+  }
+
+  &__decoration {
+    position: absolute;
+    width: 160px;
+    height: 100%;
+    top: 0;
+    left: 60px;
+    border-width: 0.4px;
   }
 
   &__copy {
@@ -32,32 +40,21 @@
   &__title {
     font-weight: 800;
     font-size: 24px;
-    line-height: 100%;
+    line-height: 34px;
   }
 
   &__desc {
     font-weight: 500;
     font-size: 13px;
     line-height: 18px;
-  }
-
-  &__decor {
-    position: absolute;
-    left: -8px;
-    bottom: -16px;
-    width: 180px;
-    height: auto;
-    opacity: 0.35;
-    pointer-events: none;
-
-    @media (min-width: 992px) {
-      width: 220px;
-    }
+    margin: 0;
   }
 
   &__form-col {
     display: flex;
     align-items: center;
+    max-width: 340px;
+    padding: 0 !important;
   }
 
   &__form {
@@ -66,17 +63,16 @@
 
   &__input-wrap {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 7px !important;
+    border-radius: 100px;
+    overflow: hidden;
   }
 
   &__input {
-    height: 44px;
-    border-radius: 999px;
+    height: 48px !important;
     border: 2px solid fade(#fff, 80%);
     background: #fff;
     color: #222;
-    padding-right: 56px; // miejsce na przycisk
-    padding-left: 18px;
     box-shadow: none;
 
     &::placeholder {
@@ -152,13 +148,38 @@
   }
 
   &__consent {
-    margin: 8px 0 0;
+    display: flex;
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    height: 18px !important;
+    margin: 0 !important;
+    padding-left: 26px;
+
+    label {
+      height: 18px;
+      padding-left: 6px !important;
+    }
+
     a {
-      color: #fff;
       text-decoration: underline;
     }
-    input {
-      margin-right: 6px;
+
+    input[type="checkbox"] {
+      position: static;
+      margin: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked {
+      -webkit-appearance: checkbox;
+      appearance: auto;
     }
   }
 }
