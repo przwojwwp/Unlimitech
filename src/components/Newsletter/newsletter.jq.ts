@@ -52,8 +52,28 @@ export function initNewsletter(root: HTMLElement) {
     hideError();
 
     const $ok = $(
-      '<div class="alert alert-success" role="status" style="margin-top:8px;">Dziękujemy! Sprawdź swoją skrzynkę.</div>'
+      `<div
+        class="alert alert-success"
+        role="status"
+        style="
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          padding: 16px 24px;
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+          border-radius: 4px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          text-align: center;
+        "
+      >
+        Dziękujemy! Sprawdź swoją skrzynkę.
+      </div>`
     );
+
     $ok
       .insertAfter($form)
       .delay(3000)
