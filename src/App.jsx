@@ -9,7 +9,7 @@ import "./app.less";
 export const App = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         {/* <Banner /> */}
         {/* <Categories /> */}
