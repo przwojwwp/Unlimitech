@@ -1,3 +1,5 @@
+@center-gap: clamp(20px, 14.4285714286vw, 202px);
+
 .newsletter {
   margin: 94px auto 0;
 
@@ -8,6 +10,8 @@
 
   .newsletter__box {
     position: relative;
+    display: flex;
+    align-items: center;
     max-width: 1400px;
     padding-top: 42px;
     padding-bottom: 42px;
@@ -21,6 +25,11 @@
     overflow: hidden;
   }
 
+  .newsletter__copy,
+  .newsletter__form-col {
+    float: none;
+  }
+
   &__decoration {
     position: absolute;
     width: 160px;
@@ -31,8 +40,7 @@
   }
 
   &__copy {
-    position: absolute;
-    z-index: 1;
+    position: static;
     max-width: 552px;
     padding: 0 !important;
   }
@@ -51,9 +59,12 @@
   }
 
   &__form-col {
+    flex: 0 0 340px;
+    margin-left: @center-gap;
+    margin-left: auto;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    max-width: 340px;
     padding: 0 !important;
   }
 
@@ -113,7 +124,6 @@
     }
   }
 
-  /* Dymek błędu jak na screenshocie (po prawej, nad inputem) */
   &__error {
     position: absolute;
     right: 6px;
@@ -124,7 +134,7 @@
     font-size: 12px;
     line-height: 1.2;
     white-space: nowrap;
-    background: #f8d7da; // Bootstrap danger bg
+    background: #f8d7da;
     border-color: #f5c6cb;
     color: #842029;
 

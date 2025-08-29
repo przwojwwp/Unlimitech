@@ -31,7 +31,7 @@ export const Newsletter: React.FC = () => {
             </p>
           </header>
 
-          <div className="col-sm-5 newsletter__form-col">
+          <div className="col-sm-5 flex-end newsletter__form-col">
             <form className="newsletter__form" noValidate>
               <div className="form-group newsletter__input-wrap">
                 <label className="sr-only">Twój adres e-mail</label>
