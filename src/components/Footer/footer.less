@@ -56,6 +56,8 @@
     list-style: none;
   }
   &__contact-list li {
+    display: flex;
+    align-items: center;
     color: @muted;
     margin: 6px 0;
   }
@@ -68,9 +70,14 @@
   }
 
   &__ico {
-    display: inline-block;
-    width: 18px;
-    margin-right: 8px;
+    display: flex;
+
+    width: 16px;
+    margin-right: 10px;
+  }
+
+  &__img {
+    stroke: @color-blue-main;
   }
 
   &__divider {
@@ -92,35 +99,6 @@
     width: auto;
     height: 32px;
     border-radius: 4px;
-
-    // &:hover {
-    //   cursor: pointer;
-    //   transform: scale(1.1);
-    //   transition: transform @hover-transition-time ease;
-    // }
-  }
-
-  &__social-list {
-    display: flex;
-    gap: 16px;
-    margin: 6px 0 0;
-    padding: 0;
-    list-style: none;
-  }
-  &__social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid @footer-border;
-    color: @text;
-    text-decoration: none;
-    background: #fff;
-    &:hover {
-      background: #f0f0f0;
-    }
   }
 
   .footer__toggle {

@@ -1,0 +1,16 @@
+.footer {
+  &__social-list {
+    display: flex;
+    gap: 16px;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__social-link {
+    transition: transform @hover-transition-time ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

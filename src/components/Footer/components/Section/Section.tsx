@@ -1,5 +1,7 @@
 import React from "react";
 import type { FooterSection } from "../../types";
+import Phone from "@assets/icons/phone.svg?react";
+import Write from "@assets/icons/write.svg?react";
 
 export const FooterCol: React.FC<{ section: FooterSection }> = ({
   section,
@@ -16,13 +18,13 @@ export const FooterCol: React.FC<{ section: FooterSection }> = ({
         <ul className="footer__contact-list">
           <li>
             <span className="footer__ico" aria-hidden="true">
-              📞
+              <Phone className="footer__img" />
             </span>
             <a href={section.tel.href}>{section.tel.label}</a>
           </li>
           <li>
             <span className="footer__ico" aria-hidden="true">
-              ✉️
+              <Write className="footer__img" />
             </span>
             <a href={section.email.href}>{section.email.label}</a>
           </li>
