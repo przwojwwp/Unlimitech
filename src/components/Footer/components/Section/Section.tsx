@@ -2,6 +2,7 @@ import React from "react";
 import type { FooterSection } from "../../types";
 import Phone from "@assets/icons/phone.svg?react";
 import Write from "@assets/icons/write.svg?react";
+import "./section.less";
 
 export const FooterCol: React.FC<{ section: FooterSection }> = ({
   section,

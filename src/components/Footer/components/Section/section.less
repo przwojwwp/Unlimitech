@@ -1,0 +1,45 @@
+.footer {
+  &__contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__contact-list li {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+  }
+  &__contact-list a {
+    text-decoration: none;
+  }
+
+  &__ico {
+    display: flex;
+
+    width: 16px;
+    margin-right: 10px;
+  }
+
+  &__img {
+    stroke: @color-blue-main;
+  }
+
+  &__contact-note {
+    max-width: 280px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item + &__item {
+    margin-top: 8px;
+  }
+  &__item a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

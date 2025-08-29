@@ -6,6 +6,7 @@
 
 .footer {
   margin: 60px 0 40px;
+  color: @color-text-dark;
 
   .container {
     max-width: 1400px;
@@ -26,58 +27,13 @@
     line-height: 22px;
     color: @text;
   }
+
   &__subheading {
-    margin: 22px 0 12px;
+    font-family: Inter;
+    font-size: 15px;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    color: @text;
-  }
-
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  &__item + &__item {
-    margin-top: 8px;
-  }
-  &__item a {
-    color: @muted;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &__contact-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  &__contact-list li {
-    display: flex;
-    align-items: center;
-    color: @muted;
-    margin: 6px 0;
-  }
-  &__contact-list a {
-    color: @muted;
-    text-decoration: none;
-  }
-  &__contact-note {
-    max-width: 280px;
-  }
-
-  &__ico {
-    display: flex;
-
-    width: 16px;
-    margin-right: 10px;
-  }
-
-  &__img {
-    stroke: @color-blue-main;
+    line-height: 22px;
+    letter-spacing: 0%;
   }
 
   &__divider {
