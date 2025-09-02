@@ -9,12 +9,12 @@ import "./app.less";
 export const App = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main>
-        {/* <Banner /> */}
-        {/* <Categories /> */}
-        {/* <Products /> */}
-        {/* <Newsletter /> */}
+        <Banner />
+        <Categories />
+        <Products />
+        <Newsletter />
         <Footer />
       </main>
     </>

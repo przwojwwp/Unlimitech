@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react(), svgr()],
+  base: "/Unlimitech/",
   css: {
     preprocessorOptions: {
       less: {
