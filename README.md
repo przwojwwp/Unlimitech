@@ -1,6 +1,6 @@
-# Harmonya Agency Landing Page
+# Unlimitech Landing Page
 
-Landing page built with **React + TypeScript + Vite**.  
+Landing page built with **React + TypeScript + Vite**.
 Deployed on GitHub Pages: [Demo](https://przwojwwp.github.io/Unlimitech)
 
 ## 🚀 Tech stack
